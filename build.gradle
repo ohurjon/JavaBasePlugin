@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'kr.entree.spigradle' version '2.2.3'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'kr.ohurjon'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    spigot()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly spigot("1.12.2")
+}
+
+spigot {
+    authors 'ohurjon'
+    apiVersion //TODO
+    description 'The JavaBasePlugin'
+    depends  //TODO
+}
+
+test {
+    useJUnitPlatform()
+}
